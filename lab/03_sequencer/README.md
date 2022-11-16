@@ -1,21 +1,25 @@
-# SEQUENCER DEVICE KEYS
+Part-1
+To implement this task, First of all we extracted all the required header files and pins of the QT PY.
 
-The following demonstration video shows recording and playing a sequence of `BOOT` button keypresses using the `neopixel` LED.
+After that we defined a method called set_neopixel_color() where by using Bit-banging we defined our desired functionality that we expect from the neopixel LED.
 
-<div align='center'>
-  <video src='https://user-images.githubusercontent.com/56625259/200099000-16d1b8dd-6086-43b5-8575-84a4f38e1443.mp4'>
-</div>
-  
-- In this program the user is prompted to use `5` keypresses to record a sequence to the RP2040.
-- The `QTPY_BOOT_PIN_REG` macro is defined with the register address for `GPIO21` which is `IO_BANK0_BASE + 0x0A8`, since the `BOOT` button is connected to it. The
-  `IO_BANK0_BASE` is defined in the SDK to `0x40014000`.
-- In the `main` function, `GPIO21` is initialized in ***input*** mode.
-- Then, in the `while` loop, the current value stored at the address `QTPY_BOOT_PIN_REG` is read using the `register_read` function.
-- Another `while` loop is nested in the `while` loop above which keeps running until `5` keypresses from the user are recorded. The `wait_time` counter is updated
-  until a key press is detected (which happens when the value in the `QTPY_BOOT_PIN_REG` goes to `0`). Once a keypress is detected the value in the counter is 
-  stored in the `wait_time_arr` array, and the counter is reinitialized to `0`. Also, the `idx` variable is updated, which keeps track of the number of user keypresses.
-- The sequence is encoded as the amount of time between two consecutive keypresses. This is stored in an array named `wait_time_arr`.
-- Once, the user, has recorded a sequence, it is played using a `for` loop, which iterates over the `wait_time_arr` array, and uses the `sleep_ms` function to wait
-  as per the value in the `wait_time_arr` array at that iteration. This helps us replay a sequence.  
-- The `re_build.sh` file is a `bash` script that removes the exisiting `build` directory, and creates a new one. After that it navigates into it, and calls `cmake`,
-  followed by `make`. This is a convinience script written to automate the build process.
+Inside the main code, we declared PICO_DEFAULT_WS2812_POWER_PIN as our POWER_PIN and initialized it followed by setting it as our output pin. We also initialized the gpio pin for boot button.
+
+
+After that we used PIO pio0 as well as state machined sm0 for our program. 
+
+Next, we used a forever running while loop where we kept all our instrtuctions for recording boot button presses and giving instructions to blink LEDs according to boot button presses.
+
+In this code,we defined the i value as well as NUMBER_KEY_PRESS, If 'NUMBER_KEY_PRESS' becomes less than 'i', then by using the register_read() method we read the input coming to QTPY_BOOT_PIN_REG.
+
+
+Part-2
+We repeated our first section's actions in our second part. However, we are documenting the boot presses on a specific occasion file in the laptop is text. The recorded sequence was then played out in LED using the values recorded in the text file.
+
+For this, the Python Serial Library was utilized. Here, we establish the baud rate, timeout value, and the name of our Command port. After initializing the serial library, we established an array to record our wait times and a variable to read from the COM Port. To keep our values in a text file, we made a text file named sequencer.txt.
+
+To read till we reached the end of the line, we employed a while loop. The data is continuously read from the port, stored in the wait time, and appended to the "wait time arr" field. The data is finally printed to the terminal.
+
+We then opened the file again to read its contents, put the contents in an array, and repeated this process until the entire message was read from the terminal.
+
+Check to see if this is the initial writing or if the first iteration's blinking is complete. The output from the console is then read.

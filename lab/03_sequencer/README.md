@@ -26,4 +26,5 @@ We then opened the file again to read its contents, put the contents in an array
 Check to see if this is the initial writing or if the first iteration's blinking is complete. The output from the console is then read.
 
 **Part-3** <br>
-Part 3 is identical to Part 2, except in this case we are reading or playing the recorded sequences in the neopixel dependent on the key strokes on the console.
+Part 3 is identical to Part 2, except in this case we are reading or playing the recorded sequences in the neopixel dependent on the key strokes on the console. <br>
+Here, pressing "r" initiates recording, and pressing "p" initiates playback of the recorded sequence. It is implemented using an if else statement inside of a while loop that never ends and regulates the Record/Play sequence operations in accordance with the input received.

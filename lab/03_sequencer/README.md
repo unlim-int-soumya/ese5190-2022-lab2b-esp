@@ -23,3 +23,6 @@ To read till we reached the end of the line, we employed a while loop. The data 
 We then opened the file again to read its contents, put the contents in an array, and repeated this process until the entire message was read from the terminal.
 
 Check to see if this is the initial writing or if the first iteration's blinking is complete. The output from the console is then read.
+
+**Part-3**
+Part 3 is identical to Part 2, except in this case we are reading or playing the recorded sequences in the neopixel dependent on the key strokes on the console.

@@ -1,4 +1,5 @@
-Part-1
+**Part-1** <br>
+
 To implement this task, First of all we extracted all the required header files and pins of the QT PY.
 
 After that we defined a method called set_neopixel_color() where by using Bit-banging we defined our desired functionality that we expect from the neopixel LED.
@@ -13,7 +14,7 @@ Next, we used a forever running while loop where we kept all our instrtuctions f
 In this code,we defined the i value as well as NUMBER_KEY_PRESS, If 'NUMBER_KEY_PRESS' becomes less than 'i', then by using the register_read() method we read the input coming to QTPY_BOOT_PIN_REG.
 
 
-Part-2
+**Part-2** <br>
 We repeated our first section's actions in our second part. However, we are documenting the boot presses on a specific occasion file in the laptop is text. The recorded sequence was then played out in LED using the values recorded in the text file.
 
 For this, the Python Serial Library was utilized. Here, we establish the baud rate, timeout value, and the name of our Command port. After initializing the serial library, we established an array to record our wait times and a variable to read from the COM Port. To keep our values in a text file, we made a text file named sequencer.txt.
@@ -24,5 +25,5 @@ We then opened the file again to read its contents, put the contents in an array
 
 Check to see if this is the initial writing or if the first iteration's blinking is complete. The output from the console is then read.
 
-**Part-3**
+**Part-3** <br>
 Part 3 is identical to Part 2, except in this case we are reading or playing the recorded sequences in the neopixel dependent on the key strokes on the console.

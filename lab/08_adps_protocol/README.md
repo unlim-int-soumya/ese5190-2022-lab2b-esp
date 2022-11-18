@@ -1,3 +1,7 @@
+Rather of utilizing the circuitpython code from lab 1, we will use the power of C and PIO in this code to collect sensor measurements from the APDS9960. 
+
+Short explanation of PIO program:
+
 In this case, TX encoding was employed for encoding. The next n+1 words will be processed as instructions if the instruction has a value larger than 0, in which case the FIFO word has no data payload. If not, shift out the 8-data bits first, then the ACK bit.
 
 

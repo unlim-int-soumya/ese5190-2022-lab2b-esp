@@ -1,6 +1,9 @@
-### TODO:
+The sequencer that we developed in part three has the same code as this one. The boot presses are being recorded here using PIO's state machines, and the sequence is then played back on the neopixel led that is built into the QT PY board.
 
-- modify your sequencer to use the PIO as its primary I/O engine, including the ability to R/W any register 
+We defined our state machines 0 and 1 and used the pio0 instance of our PIO to do this. The boot statu program and ws2812 program PIO programs were added to the main C source file.
+
+Our PIO was designed to serve as the user's primary search engine and runs at an 8MHz baud rate.
+
 
 # ANS:</Br>
 Please find the code directory.

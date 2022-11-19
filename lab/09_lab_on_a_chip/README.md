@@ -1,2 +1,0 @@
-
-Rather of utilizing the circuitpython code from lab 1, we will use the power of C and PIO in this code to collect sensor measurements from the APDS9960.  Many of our functions from Part 8 stayed the same in this section. for In our last application, we included one additional feature: Neopixel functionality. We displayed the color packet data while transmission when the PIO packet was supplied to the PIO module.
